@@ -1,0 +1,157 @@
+{
+  "track": "nlp",
+  "model": "google/bert_uncased_L-2_H-128_A-2",
+  "revision": "30b0a37ccaaa32f332884b96992754e246e48c5f",
+  "dataset_revision": "74c9b9dca034bb1606a6769457983904bd976803",
+  "dataset_language": "en",
+  "source_sizes": {
+    "train": 92720,
+    "validation": 11590,
+    "test": 11597
+  },
+  "selection_limits": {
+    "train": 10000,
+    "validation": 2000,
+    "test": 2000
+  },
+  "validation": {
+    "f1_micro": 0.6382857142857142,
+    "f1_macro": 0.6146320283344249,
+    "precision": 0.6262966077936641,
+    "recall": 0.6507427905621905,
+    "token_f1": 0.7265240354489303,
+    "per_type": {
+      "LOC": {
+        "precision": 0.6543321299638989,
+        "recall": 0.7435897435897436,
+        "f1-score": 0.6961113778204512,
+        "support": 975
+      },
+      "MISC": {
+        "precision": 0.4731457800511509,
+        "recall": 0.4389086595492289,
+        "f1-score": 0.4553846153846154,
+        "support": 843
+      },
+      "ORG": {
+        "precision": 0.5091210613598673,
+        "recall": 0.5133779264214047,
+        "f1-score": 0.511240632805995,
+        "support": 598
+      },
+      "PER": {
+        "precision": 0.7746741154562383,
+        "recall": 0.8180924287118977,
+        "f1-score": 0.795791487326638,
+        "support": 1017
+      }
+    }
+  },
+  "training": {
+    "seed": 0,
+    "epochs": 3,
+    "lr": 0.0002,
+    "batch_size": 32,
+    "max_length": 128
+  },
+  "dataset": "Babelscape/wikineural",
+  "classes": [
+    "LOC",
+    "MISC",
+    "ORG",
+    "PER"
+  ],
+  "n_train": 10000,
+  "n_val": 2000,
+  "n_test": 2000,
+  "params_total": 4370569,
+  "baseline": {
+    "majority": {
+      "f1_micro": 0.36879000304785126,
+      "f1_macro": 0.3652377680488791,
+      "precision": 0.3867050175775008,
+      "recall": 0.35246140401980774
+    },
+    "random_head": {
+      "f1_micro": 0.011440245148110316,
+      "f1_macro": 0.011197083955725426,
+      "precision": 0.00665335994677312,
+      "recall": 0.040780658316341395
+    }
+  },
+  "final": {
+    "f1_micro": 0.6495575221238938,
+    "f1_macro": 0.6364487758187658,
+    "precision": 0.643859649122807,
+    "recall": 0.6553571428571429,
+    "token_f1": 0.7321172762868876,
+    "per_type": {
+      "LOC": {
+        "precision": 0.690990990990991,
+        "recall": 0.7541789577187807,
+        "f1-score": 0.7212035731076635,
+        "support": 1017
+      },
+      "MISC": {
+        "precision": 0.5340632603406326,
+        "recall": 0.4850828729281768,
+        "f1-score": 0.5083960625361899,
+        "support": 905
+      },
+      "ORG": {
+        "precision": 0.5406779661016949,
+        "recall": 0.5425170068027211,
+        "f1-score": 0.5415959252971138,
+        "support": 588
+      },
+      "PER": {
+        "precision": 0.7538975501113586,
+        "recall": 0.7964705882352942,
+        "f1-score": 0.7745995423340961,
+        "support": 850
+      }
+    }
+  },
+  "ablation": {
+    "setting": "freeze",
+    "split": "validation",
+    "full": {
+      "metrics": {
+        "f1_micro": 0.6382857142857142,
+        "f1_macro": 0.6146320283344249,
+        "precision": 0.6262966077936641,
+        "recall": 0.6507427905621905
+      },
+      "time_sec": 20.186058815000024,
+      "trainable_params": 4370569
+    },
+    "freeze": {
+      "metrics": {
+        "f1_micro": 0.0011641443538998836,
+        "f1_macro": 0.0010224948875255625,
+        "precision": 0.6666666666666666,
+        "recall": 0.0005825808330905913
+      },
+      "time_sec": 13.20147982100002,
+      "trainable_params": 1161
+    },
+    "controlled": {
+      "seed": 0,
+      "epochs": 3,
+      "lr": 0.0002,
+      "batch_size": 32,
+      "max_length": 128,
+      "train_sentences": 10000
+    }
+  },
+  "errors": {
+    "correct": 2234,
+    "boundary": 370,
+    "type": 421,
+    "missed": 408,
+    "spurious": 349
+  },
+  "device": "Tesla T4",
+  "train_time_sec": 20.186058815000024,
+  "fast_mode": false
+}
